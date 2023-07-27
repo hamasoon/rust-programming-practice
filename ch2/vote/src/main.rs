@@ -8,10 +8,14 @@ fn main() {
     for (i, s) in args.iter().enumerate() {
         if i == 0 { continue; }
 
-        match vote_result.get(&(s.to_uppercase())) {
-            None => { vote_result.insert(s.to_string(), 1); },
-            Some(value) => { vote_result.insert(s.to_string(), value + 1); }
-        }
+        let _ = vote_result.entry(s.to_string())
+            .and_modify(|e| *e += 1)
+            .or_insert(1);
+
+        // match vote_result.get(&(s.to_uppercase())) {
+        //     None => { vote_result.insert(s.to_string(), 1); },
+        //     Some(value) => { vote_result.insert(s.to_string(), value + 1); }
+        // }
     }
 
     for item in vote_result.iter() {
