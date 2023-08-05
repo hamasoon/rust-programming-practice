@@ -1,0 +1,11 @@
+[workspace]
+members = [
+    "server",
+    "client",
+    "shared",
+]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["BAE MUN SUNG <hmasoon@snu.ac.kr>"]
+description = "Rust sample chatting server and client"

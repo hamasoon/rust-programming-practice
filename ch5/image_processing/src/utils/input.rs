@@ -22,5 +22,5 @@ pub fn get_string_input(input_prompt: String) -> String {
     
     std::io::stdin().read_line(&mut input).expect("Input err.");
 
-    input
+    input.trim().to_string()
 }
